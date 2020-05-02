@@ -22,4 +22,14 @@ public class Graph {
     public ArrayList<Vertex> getVertices(){
         return vertices;
     }
+
+    /**
+     * A static method to connect two vertices.
+     * @param v1
+     * @param v2
+     */
+    public static void connectVertices(Vertex v1, Vertex v2){
+        v1.getNeighbors().add(v2);
+        v2.getNeighbors().add(v1);
+    }
 }

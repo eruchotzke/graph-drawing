@@ -22,9 +22,33 @@ public class Vector2 {
         y += other.y;
     }
 
+    public double getMagnitude(){
+        return Math.sqrt(x * x + y * y);
+    }
+
+    public void normalize(){
+        x /= getMagnitude();
+        y /= getMagnitude();
+    }
+
+    public double getDistance(Vector2 other){
+        double dx = other.x - x;
+        double dy = other.y - y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public Vector2 getVectorTowards(Vector2 otherPosition){
+        return new Vector2(otherPosition.x - x, otherPosition.y - y);
+    }
+
     public void scale(double value){
         x *= value;
         y *= value;
+    }
+
+    public void setVector(double x, double y){
+        this.x = x;
+        this.y = y;
     }
 
     public double getX() {
@@ -33,6 +57,11 @@ public class Vector2 {
 
     public double getY() {
         return y;
+    }
+
+    @Override
+    public String toString(){
+        return "(" + x + ", " + y + ")";
     }
 
     /* Static Methods */
